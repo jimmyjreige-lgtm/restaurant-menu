@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balcony Burgers - Premium Menu</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
@@ -18,468 +13,111 @@
             padding: 40px 20px;
             min-height: 100vh;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            margin-bottom: 50px;
-            animation: slideDown 0.8s ease-out;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 50px; animation: slideDown 0.8s ease-out; }
         .logo-container {
             background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
-            padding: 30px 40px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.3);
-            margin-bottom: 25px;
-            border: 3px solid #FF6B35;
+            padding: 30px 40px; border-radius: 15px; display: inline-block;
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.3); margin-bottom: 25px; border: 3px solid #FF6B35;
         }
-
         .logo-text {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            justify-content: center;
-            font-size: 48px;
-            font-weight: 900;
-            letter-spacing: 3px;
+            display: flex; align-items: center; gap: 15px; justify-content: center;
+            font-size: 48px; font-weight: 900; letter-spacing: 3px;
         }
-
-        .logo-text .balcony {
-            color: #FF6B35;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .logo-text .burgers {
-            color: #E8E8E8;
-            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
-        }
-
+        .logo-text .balcony { color: #FF6B35; text-shadow: 3px 3px 8px rgba(0,0,0,0.5); }
+        .logo-text .burgers { color: #E8E8E8; text-shadow: 3px 3px 8px rgba(0,0,0,0.5); }
         .header-tagline {
-            color: #FF6B35;
-            font-size: 16px;
-            letter-spacing: 2px;
-            font-weight: 600;
-            margin-top: 15px;
+            color: #FF6B35; font-size: 16px; letter-spacing: 2px; font-weight: 600; margin-top: 15px;
         }
-
-        h1 {
-            font-size: 48px;
-            color: #FF6B35;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .subtitle {
-            color: #999;
-            font-size: 16px;
-            letter-spacing: 1px;
-        }
-
-        /* Section Titles */
+        h1 { font-size: 48px; color: #FF6B35; font-weight: 700; letter-spacing: 2px; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .subtitle { color: #999; font-size: 16px; letter-spacing: 1px; }
         .section-title {
-            font-size: 36px;
-            color: #FF6B35;
-            margin: 50px 0 40px 0;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #FF6B35;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-size: 36px; color: #FF6B35; margin: 50px 0 40px 0; padding-bottom: 15px; border-bottom: 3px solid #FF6B35; font-weight: 700; letter-spacing: 2px;
         }
-
-        /* Menu Items Grid */
         .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 35px;
-            margin-bottom: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; margin-bottom: 40px;
         }
-
-        /* Menu Card */
         .menu-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            animation: fadeIn 0.6s ease-out forwards;
-            border: 2px solid transparent;
+            background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+            transition: all 0.4s cubic-bezier(0.4,0,0.2,1); cursor: pointer; animation: fadeIn 0.6s ease-out forwards; border: 2px solid transparent;
         }
-
         .menu-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.35);
-            border-color: #FF6B35;
+            transform: translateY(-15px); box-shadow: 0 25px 60px rgba(255,107,53,0.35); border-color: #FF6B35;
         }
-
-        .menu-card:nth-child(1) { animation-delay: 0.1s; }
-        .menu-card:nth-child(2) { animation-delay: 0.2s; }
-        .menu-card:nth-child(3) { animation-delay: 0.3s; }
-        .menu-card:nth-child(4) { animation-delay: 0.4s; }
-        .menu-card:nth-child(5) { animation-delay: 0.5s; }
-        .menu-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .card-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: relative;
-            font-size: 120px;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 30px;
-        }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .card-description {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            min-height: 45px;
-        }
-
-        .price-section {
-            border-top: 2px solid #f0f0f0;
-            padding-top: 15px;
-        }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .price-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .size-label {
-            font-size: 13px;
-            color: #999;
-            font-weight: 600;
-        }
-
+        .menu-card:nth-child(1){ animation-delay: 0.1s; } .menu-card:nth-child(2){ animation-delay: 0.2s; } .menu-card:nth-child(3){ animation-delay: 0.3s; }
+        .menu-card:nth-child(4){ animation-delay: 0.4s; } .menu-card:nth-child(5){ animation-delay: 0.5s; } .menu-card:nth-child(6){ animation-delay: 0.6s; }
+        .card-image { width: 100%; height: 250px; background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .card-content { padding: 30px; }
+        .card-title { font-size: 24px; font-weight: 700; color: #333; margin-bottom: 10px; }
+        .card-description { font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 18px; min-height: 45px; }
+        .price-section { border-top: 2px solid #f0f0f0; padding-top: 15px; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .price-row:last-child { margin-bottom: 0; }
+        .size-label { font-size: 13px; color: #999; font-weight: 600; }
         .price-box {
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 15px;
-            min-width: 65px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%); color: white; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 15px; min-width: 65px; text-align: center; box-shadow: 0 4px 12px rgba(255,107,53,0.3);
         }
-
-        /* Appetizers Grid */
-        .appetizers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
+        .appetizers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; }
         .appetizer-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            animation: fadeIn 0.6s ease-out forwards;
-            border: 2px solid transparent;
+            background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.12); transition: all 0.3s ease; cursor: pointer; animation: fadeIn 0.6s ease-out forwards; border: 2px solid transparent;
         }
-
         .appetizer-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
-            border-color: #FF6B35;
+            transform: translateY(-8px); box-shadow: 0 15px 40px rgba(255,107,53,0.25); border-color: #FF6B35;
         }
-
-        .appetizer-card:nth-child(1) { animation-delay: 0.1s; }
-        .appetizer-card:nth-child(2) { animation-delay: 0.2s; }
-        .appetizer-card:nth-child(3) { animation-delay: 0.3s; }
-        .appetizer-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .appetizer-image {
-            width: 100%;
-            height: 180px;
-            background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .appetizer-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .appetizer-content {
-            padding: 18px;
-            text-align: center;
-        }
-
-        .appetizer-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .appetizer-price {
-            font-size: 15px;
-            color: #FF6B35;
-            font-weight: 700;
-        }
-
-        /* Drinks Section */
+        .appetizer-card:nth-child(1){ animation-delay: 0.1s; } .appetizer-card:nth-child(2){ animation-delay: 0.2s; }
+        .appetizer-card:nth-child(3){ animation-delay: 0.3s; } .appetizer-card:nth-child(4){ animation-delay: 0.4s; }
+        .appetizer-image { width: 100%; height: 180px; background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .appetizer-image img { width: 100%; height: 100%; object-fit: cover; }
+        .appetizer-content { padding: 18px; text-align: center; }
+        .appetizer-name { font-size: 16px; font-weight: 700; color: #333; margin-bottom: 8px; }
+        .appetizer-price { font-size: 15px; color: #FF6B35; font-weight: 700; }
         .drinks-section {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.12) 0%, rgba(255, 133, 85, 0.08) 100%);
-            border-radius: 15px;
-            padding: 45px;
-            margin: 50px 0;
-            border: 2px solid rgba(255, 107, 53, 0.2);
+            background: linear-gradient(135deg, rgba(255,107,53,0.12) 0%, rgba(255,133,85,0.08) 100%); border-radius: 15px; padding: 45px; margin: 50px 0; border: 2px solid rgba(255,107,53,0.2);
         }
-
-        .drinks-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 30px;
-        }
-
+        .drinks-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px; }
         .drink-card {
-            background: white;
-            padding: 28px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            animation: fadeIn 0.6s ease-out forwards;
-            border: 2px solid transparent;
-            text-align: center;
+            background: white; padding: 28px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s ease; animation: fadeIn 0.6s ease-out forwards; border: 2px solid transparent; text-align: center;
         }
-
-        .drink-card:nth-child(1) { animation-delay: 0.1s; }
-        .drink-card:nth-child(2) { animation-delay: 0.2s; }
-        .drink-card:nth-child(3) { animation-delay: 0.3s; }
-        .drink-card:nth-child(4) { animation-delay: 0.4s; }
-
-        .drink-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
-            border-color: #FF6B35;
-        }
-
-        .drink-name {
-            font-size: 18px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 12px;
-        }
-
-        .drink-price {
-            font-size: 16px;
-            color: #FF6B35;
-            font-weight: 700;
-        }
-
-        /* Combos Section */
+        .drink-card:nth-child(1){ animation-delay: 0.1s; } .drink-card:nth-child(2){ animation-delay: 0.2s; } .drink-card:nth-child(3){ animation-delay: 0.3s; } .drink-card:nth-child(4){ animation-delay: 0.4s; }
+        .drink-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(255,107,53,0.25); border-color: #FF6B35; }
+        .drink-name { font-size: 18px; font-weight: 700; color: #333; margin-bottom: 12px; }
+        .drink-price { font-size: 16px; color: #FF6B35; font-weight: 700; }
         .combo-section {
-            background: white;
-            border-radius: 15px;
-            padding: 45px;
-            margin: 50px 0;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
-            border: 2px solid #FF6B35;
+            background: white; border-radius: 15px; padding: 45px; margin: 50px 0; box-shadow: 0 10px 35px rgba(0,0,0,0.15); border: 2px solid #FF6B35;
         }
-
-        .combo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 35px;
-        }
-
+        .combo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 35px; }
         .combo-card {
-            border: 3px solid #FF6B35;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            animation: fadeIn 0.6s ease-out forwards;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 133, 85, 0.02) 100%);
+            border: 3px solid #FF6B35; border-radius: 12px; padding: 25px; text-align: center; transition: all 0.3s ease; animation: fadeIn 0.6s ease-out forwards; background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(255,133,85,0.02) 100%);
         }
-
-        .combo-card:nth-child(1) { animation-delay: 0.1s; }
-        .combo-card:nth-child(2) { animation-delay: 0.2s; }
-
-        .combo-card:hover {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 133, 85, 0.1) 100%);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
-        }
-
-        .combo-icon {
-            font-size: 60px;
-            margin-bottom: 18px;
-        }
-
-        .combo-name {
-            font-size: 22px;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 15px;
-        }
-
-        .combo-includes {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.9;
-            margin-bottom: 18px;
-            text-align: left;
-        }
-
-        .combo-price {
-            font-size: 20px;
-            color: #FF6B35;
-            font-weight: 700;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 2px solid rgba(255, 107, 53, 0.3);
-        }
-
-        /* Sauces */
+        .combo-card:nth-child(1){ animation-delay: 0.1s; } .combo-card:nth-child(2){ animation-delay: 0.2s; }
+        .combo-card:hover { background: linear-gradient(135deg, rgba(255,107,53,0.15) 0%, rgba(255,133,85,0.1) 100%); transform: translateY(-5px); box-shadow: 0 15px 40px rgba(255,107,53,0.2); }
+        .combo-icon { font-size: 60px; margin-bottom: 18px; }
+        .combo-name { font-size: 22px; font-weight: 700; color: #333; margin-bottom: 15px; }
+        .combo-includes { font-size: 14px; color: #666; line-height: 1.9; margin-bottom: 18px; text-align: left; }
+        .combo-price { font-size: 20px; color: #FF6B35; font-weight: 700; margin-top: 15px; padding-top: 15px; border-top: 2px solid rgba(255,107,53,0.3); }
         .sauce-section {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 133, 85, 0.05) 100%);
-            border-radius: 15px;
-            padding: 40px;
-            margin: 50px 0;
-            border: 2px solid rgba(255, 107, 53, 0.15);
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(255,133,85,0.05) 100%); border-radius: 15px; padding: 40px; margin: 50px 0; border: 2px solid rgba(255,107,53,0.15);
         }
-
-        .sauce-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 22px;
-            margin-top: 28px;
-        }
-
-        .sauce-item {
-            background: white;
-            padding: 18px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .sauce-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.18);
-            border-color: #FF6B35;
-        }
-
-        .sauce-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: #333;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            margin-top: 60px;
-            padding-top: 30px;
-            border-top: 3px solid #FF6B35;
-            color: #999;
-            font-size: 15px;
-        }
-
-        /* Animations */
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
+        .sauce-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 22px; margin-top: 28px; }
+        .sauce-item { background: white; padding: 18px; border-radius: 10px; text-align: center; box-shadow: 0 3px 12px rgba(0,0,0,0.08); transition: all 0.3s ease; border: 2px solid transparent; }
+        .sauce-item:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(255,107,53,0.18); border-color: #FF6B35; }
+        .sauce-name { font-size: 15px; font-weight: 700; color: #333; }
+        .footer { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 3px solid #FF6B35; color: #999; font-size: 15px; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .menu-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-
-            .card-image {
-                height: 200px;
-            }
-
-            .container {
-                padding: 0 10px;
-            }
-
-            .logo-text {
-                font-size: 36px;
-            }
+            h1 { font-size: 36px; }
+            .section-title { font-size: 28px; }
+            .menu-grid { grid-template-columns: 1fr; gap: 25px; }
+            .card-image { height: 200px; }
+            .container { padding: 0 10px; }
+            .logo-text { font-size: 36px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <div class="logo-container">
                 <div class="logo-text">
@@ -491,136 +129,98 @@
             <p class="subtitle">Crafted with Excellence • Served with Pride</p>
         </div>
 
-        <!-- Beef Burgers Section -->
         <h2 class="section-title">🍔 Beef Burgers</h2>
         <div class="menu-grid">
             <div class="menu-card">
                 <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop" alt="Classic Beef Burger">
+                    <img src="images/beef%20burger,%20french%20fries,%20and%20soft%20drink.jpg" alt="Classic Beef Burger">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Classic Beef</div>
                     <div class="card-description">Premium beef patty, crisp iceberg lettuce, fresh tomato, pickles, and our signature balcony sauce</div>
                     <div class="price-section">
-                        <div class="price-row">
-                            <span class="size-label">125g</span>
-                            <span class="price-box">$8</span>
-                        </div>
-                        <div class="price-row">
-                            <span class="size-label">200g</span>
-                            <span class="price-box">$10</span>
-                        </div>
+                        <div class="price-row"><span class="size-label">125g</span><span class="price-box">$8</span></div>
+                        <div class="price-row"><span class="size-label">200g</span><span class="price-box">$10</span></div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
                 <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1550547690-d5eb893e4a4e?w=500&h=400&fit=crop" alt="Cheese Beef Burger">
+                    <img src="images/cheese-beef.jpg" alt="Cheese Beef Burger">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Cheese Beef</div>
                     <div class="card-description">Succulent beef patty topped with melted cheddar cheese, crispy chips, fresh pickles, and balcony sauce</div>
                     <div class="price-section">
-                        <div class="price-row">
-                            <span class="size-label">125g</span>
-                            <span class="price-box">$9</span>
-                        </div>
-                        <div class="price-row">
-                            <span class="size-label">200g</span>
-                            <span class="price-box">$11</span>
-                        </div>
+                        <div class="price-row"><span class="size-label">125g</span><span class="price-box">$9</span></div>
+                        <div class="price-row"><span class="size-label">200g</span><span class="price-box">$11</span></div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
                 <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1572802419224-7b1aca3a3302?w=500&h=400&fit=crop" alt="Double Cheese Burger">
+                    <img src="images/beef%20burger,%20curly%20fries,%20and%20soft%20drink%20.jpg" alt="Double Cheese Burger">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Double Cheese</div>
                     <div class="card-description">Indulge in double cheddar cheese slices over our premium beef patty with iceberg, chips, pickles, and balcony sauce</div>
                     <div class="price-section">
-                        <div class="price-row">
-                            <span class="size-label">125g</span>
-                            <span class="price-box">$12</span>
-                        </div>
-                        <div class="price-row">
-                            <span class="size-label">200g</span>
-                            <span class="price-box">$19</span>
-                        </div>
+                        <div class="price-row"><span class="size-label">125g</span><span class="price-box">$12</span></div>
+                        <div class="price-row"><span class="size-label">200g</span><span class="price-box">$19</span></div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
                 <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1585238341710-4abb9f1e64f0?w=500&h=400&fit=crop" alt="Mozzarella Beef Burger">
+                    <img src="images/mozzarella-beef.jpg" alt="Mozzarella Beef Burger">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Mozzarella Beef</div>
                     <div class="card-description">Crispy breaded mozzarella on top of a juicy beef patty, iceberg, chips, pickles, and our special balcony sauce</div>
                     <div class="price-section">
-                        <div class="price-row">
-                            <span class="size-label">125g</span>
-                            <span class="price-box">$10</span>
-                        </div>
-                        <div class="price-row">
-                            <span class="size-label">200g</span>
-                            <span class="price-box">$12</span>
-                        </div>
+                        <div class="price-row"><span class="size-label">125g</span><span class="price-box">$10</span></div>
+                        <div class="price-row"><span class="size-label">200g</span><span class="price-box">$12</span></div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
                 <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=400&fit=crop" alt="Swiss Mushroom Burger">
+                    <img src="images/swiss-mushroom.jpg" alt="Swiss Mushroom Burger">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Swiss Mushroom</div>
                     <div class="card-description">Gourmet beef patty topped with creamy swiss cheese and sautéed fresh mushrooms with our signature sauce</div>
                     <div class="price-section">
-                        <div class="price-row">
-                            <span class="size-label">125g</span>
-                            <span class="price-box">$10</span>
-                        </div>
-                        <div class="price-row">
-                            <span class="size-label">200g</span>
-                            <span class="price-box">$12</span>
-                        </div>
+                        <div class="price-row"><span class="size-label">125g</span><span class="price-box">$10</span></div>
+                        <div class="price-row"><span class="size-label">200g</span><span class="price-box">$12</span></div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
                 <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1499161574692-0f0b4e7c4c64?w=500&h=400&fit=crop" alt="Lebanese Burger">
+                    <img src="images/lebanese-burger.jpg" alt="Lebanese Burger">
                 </div>
                 <div class="card-content">
                     <div class="card-title">Lebanese Burger</div>
                     <div class="card-description">Authentic Lebanese flavors with beef patty, fresh onions, ripe tomatoes, iceberg, crispy fries, mayo, and ketchup</div>
                     <div class="price-section">
-                        <div class="price-row">
-                            <span class="size-label">125g</span>
-                            <span class="price-box">$8</span>
-                        </div>
-                        <div class="price-row">
-                            <span class="size-label">200g</span>
-                            <span class="price-box">$10</span>
-                        </div>
+                        <div class="price-row"><span class="size-label">125g</span><span class="price-box">$8</span></div>
+                        <div class="price-row"><span class="size-label">200g</span><span class="price-box">$10</span></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Appetizers Section -->
         <h2 class="section-title">🍟 Appetizers</h2>
         <div class="appetizers-grid">
             <div class="appetizer-card">
                 <div class="appetizer-image">
-                    <img src="https://images.unsplash.com/photo-1584948895917-e4ffa4a0df3e?w=400&h=300&fit=crop" alt="French Fries">
+                    <img src="images/beef%20burger,%20french%20fries,%20and%20soft%20drink.jpg" alt="French Fries">
                 </div>
                 <div class="appetizer-content">
                     <div class="appetizer-name">French Fries</div>
@@ -630,7 +230,7 @@
 
             <div class="appetizer-card">
                 <div class="appetizer-image">
-                    <img src="https://images.unsplash.com/photo-1562547256-be8b4618a7a9?w=400&h=300&fit=crop" alt="Curly Fries">
+                    <img src="images/curly-fries.jpg" alt="Curly Fries">
                 </div>
                 <div class="appetizer-content">
                     <div class="appetizer-name">Curly Fries</div>
@@ -640,7 +240,7 @@
 
             <div class="appetizer-card">
                 <div class="appetizer-image">
-                    <img src="https://images.unsplash.com/photo-1579582190000-c8d7d86b7c51?w=400&h=300&fit=crop" alt="Mozzarella Sticks">
+                    <img src="images/mozzarella-sticks.jpg" alt="Mozzarella Sticks">
                 </div>
                 <div class="appetizer-content">
                     <div class="appetizer-name">Mozzarella Sticks</div>
@@ -650,7 +250,7 @@
 
             <div class="appetizer-card">
                 <div class="appetizer-image">
-                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cfd45e?w=400&h=300&fit=crop" alt="Loaded Chicken Fries">
+                    <img src="images/loaded-chicken-fries.jpg" alt="Loaded Chicken Fries">
                 </div>
                 <div class="appetizer-content">
                     <div class="appetizer-name">Loaded Chicken Fries</div>
@@ -659,7 +259,6 @@
             </div>
         </div>
 
-        <!-- Combos Section -->
         <div class="combo-section">
             <h2 class="section-title">🎁 Combo Deals</h2>
             <div class="combo-grid">
@@ -686,59 +285,30 @@
             </div>
         </div>
 
-        <!-- Drinks Section -->
         <div class="drinks-section">
             <h2 class="section-title">🥤 Beverages</h2>
             <div class="drinks-grid">
-                <div class="drink-card">
-                    <div class="drink-name">💧 Water</div>
-                    <div class="drink-price">$0.5</div>
-                </div>
-                <div class="drink-card">
-                    <div class="drink-name">🥤 Soft Drinks</div>
-                    <div class="drink-price">$1.5</div>
-                </div>
-                <div class="drink-card">
-                    <div class="drink-name">🧋 Ice Tea</div>
-                    <div class="drink-price">$1.5</div>
-                </div>
-                <div class="drink-card">
-                    <div class="drink-name">✨ Sparkling Water</div>
-                    <div class="drink-price">$2</div>
-                </div>
+                <div class="drink-card"><div class="drink-name">💧 Water</div><div class="drink-price">$0.5</div></div>
+                <div class="drink-card"><div class="drink-name">🥤 Soft Drinks</div><div class="drink-price">$1.5</div></div>
+                <div class="drink-card"><div class="drink-name">🧋 Ice Tea</div><div class="drink-price">$1.5</div></div>
+                <div class="drink-card"><div class="drink-name">✨ Sparkling Water</div><div class="drink-price">$2</div></div>
             </div>
         </div>
 
-        <!-- Sauces Section -->
         <div class="sauce-section">
             <h2 class="section-title">🧂 Premium Sauces</h2>
             <p style="text-align: center; color: #666; margin-bottom: 25px; font-weight: 600;">Add any sauce for just $0.50 extra</p>
             <div class="sauce-grid">
-                <div class="sauce-item">
-                    <div class="sauce-name">🍅 Ketchup</div>
-                </div>
-                <div class="sauce-item">
-                    <div class="sauce-name">🥫 Mayo</div>
-                </div>
-                <div class="sauce-item">
-                    <div class="sauce-name">🔴 BBQ Sauce</div>
-                </div>
-                <div class="sauce-item">
-                    <div class="sauce-name">⭐ Balcony Sauce</div>
-                </div>
-                <div class="sauce-item">
-                    <div class="sauce-name">🍯 Honey Mustard</div>
-                </div>
-                <div class="sauce-item">
-                    <div class="sauce-name">🧀 Cheddar Sauce</div>
-                </div>
-                <div class="sauce-item">
-                    <div class="sauce-name">🅰️ A77 Sauce</div>
-                </div>
+                <div class="sauce-item"><div class="sauce-name">🍅 Ketchup</div></div>
+                <div class="sauce-item"><div class="sauce-name">🥫 Mayo</div></div>
+                <div class="sauce-item"><div class="sauce-name">🔴 BBQ Sauce</div></div>
+                <div class="sauce-item"><div class="sauce-name">⭐ Balcony Sauce</div></div>
+                <div class="sauce-item"><div class="sauce-name">🍯 Honey Mustard</div></div>
+                <div class="sauce-item"><div class="sauce-name">🧀 Cheddar Sauce</div></div>
+                <div class="sauce-item"><div class="sauce-name">🅰️ A77 Sauce</div></div>
             </div>
         </div>
 
-        <!-- Footer -->
         <div class="footer">
             <p>🍔 <strong>BALCONY BURGERS</strong> • Crafted with Excellence • Served with Pride 🍔</p>
             <p style="margin-top: 10px; font-size: 13px;">Thank you for choosing us! Enjoy your meal!</p>
