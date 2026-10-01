@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Burger Restaurant Menu</title>
+    <title>Balcony Burgers - Premium Menu</title>
     <style>
         * {
             margin: 0;
@@ -31,68 +31,94 @@
             animation: slideDown 0.8s ease-out;
         }
 
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #FF9500 0%, #FF7700 100%);
-            border-radius: 50%;
+        .logo-container {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 30px 40px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.3);
+            margin-bottom: 25px;
+            border: 3px solid #FF6B35;
+        }
+
+        .logo-text {
             display: flex;
             align-items: center;
+            gap: 15px;
             justify-content: center;
-            font-size: 60px;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 10px 40px rgba(255, 149, 0, 0.3);
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .logo-text .balcony {
+            color: #FF6B35;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-text .burgers {
+            color: #E8E8E8;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-tagline {
+            color: #FF6B35;
+            font-size: 16px;
+            letter-spacing: 2px;
+            font-weight: 600;
+            margin-top: 15px;
         }
 
         h1 {
             font-size: 48px;
-            color: #FF9500;
-            font-weight: 300;
-            letter-spacing: 3px;
+            color: #FF6B35;
+            font-weight: 700;
+            letter-spacing: 2px;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .subtitle {
             color: #999;
             font-size: 16px;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         /* Section Titles */
         .section-title {
             font-size: 36px;
-            color: #FF9500;
+            color: #FF6B35;
             margin: 50px 0 40px 0;
             padding-bottom: 15px;
-            border-bottom: 2px solid #FF9500;
-            font-weight: 300;
+            border-bottom: 3px solid #FF6B35;
+            font-weight: 700;
             letter-spacing: 2px;
         }
 
         /* Menu Items Grid */
         .menu-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
             margin-bottom: 40px;
         }
 
         /* Menu Card */
         .menu-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             animation: fadeIn 0.6s ease-out forwards;
+            border: 2px solid transparent;
         }
 
         .menu-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(255, 149, 0, 0.3);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(255, 107, 53, 0.35);
+            border-color: #FF6B35;
         }
 
         .menu-card:nth-child(1) { animation-delay: 0.1s; }
@@ -101,146 +127,165 @@
         .menu-card:nth-child(4) { animation-delay: 0.4s; }
         .menu-card:nth-child(5) { animation-delay: 0.5s; }
         .menu-card:nth-child(6) { animation-delay: 0.6s; }
-        .menu-card:nth-child(7) { animation-delay: 0.7s; }
 
         .card-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #FF9500 0%, #FF7700 100%);
+            height: 250px;
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
             overflow: hidden;
             position: relative;
+            font-size: 120px;
         }
 
-        .card-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .card-image span {
-            font-size: 100px;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-            z-index: 1;
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .card-content {
-            padding: 25px;
+            padding: 30px;
         }
 
         .card-title {
-            font-size: 22px;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: 700;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .card-description {
-            font-size: 13px;
+            font-size: 14px;
             color: #666;
-            line-height: 1.6;
-            margin-bottom: 15px;
-            min-height: 40px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            min-height: 45px;
+        }
+
+        .price-section {
+            border-top: 2px solid #f0f0f0;
+            padding-top: 15px;
         }
 
         .price-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-top: 12px;
-            border-top: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+
+        .price-row:last-child {
+            margin-bottom: 0;
         }
 
         .size-label {
-            font-size: 12px;
+            font-size: 13px;
             color: #999;
             font-weight: 600;
         }
 
         .price-box {
-            background: linear-gradient(135deg, #FF9500 0%, #FF7700 100%);
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
             color: white;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-weight: 600;
-            font-size: 14px;
-            min-width: 60px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            min-width: 65px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
         }
 
-        /* Appetizers Grid - Smaller cards */
+        /* Appetizers Grid */
         .appetizers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
         }
 
         .appetizer-card {
             background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
             transition: all 0.3s ease;
             cursor: pointer;
             animation: fadeIn 0.6s ease-out forwards;
+            border: 2px solid transparent;
         }
 
         .appetizer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+            border-color: #FF6B35;
         }
 
         .appetizer-card:nth-child(1) { animation-delay: 0.1s; }
         .appetizer-card:nth-child(2) { animation-delay: 0.2s; }
         .appetizer-card:nth-child(3) { animation-delay: 0.3s; }
+        .appetizer-card:nth-child(4) { animation-delay: 0.4s; }
 
-        .appetizer-icon {
-            font-size: 50px;
-            margin-bottom: 12px;
+        .appetizer-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8555 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .appetizer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .appetizer-content {
+            padding: 18px;
+            text-align: center;
         }
 
         .appetizer-name {
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             color: #333;
             margin-bottom: 8px;
         }
 
         .appetizer-price {
-            font-size: 14px;
-            color: #FF9500;
+            font-size: 15px;
+            color: #FF6B35;
             font-weight: 700;
         }
 
         /* Drinks Section */
         .drinks-section {
-            background: linear-gradient(135deg, rgba(255, 149, 0, 0.1) 0%, rgba(255, 119, 0, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.12) 0%, rgba(255, 133, 85, 0.08) 100%);
             border-radius: 15px;
-            padding: 40px;
+            padding: 45px;
             margin: 50px 0;
+            border: 2px solid rgba(255, 107, 53, 0.2);
         }
 
         .drinks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 30px;
         }
 
         .drink-card {
             background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             animation: fadeIn 0.6s ease-out forwards;
+            border: 2px solid transparent;
+            text-align: center;
         }
 
         .drink-card:nth-child(1) { animation-delay: 0.1s; }
@@ -249,25 +294,21 @@
         .drink-card:nth-child(4) { animation-delay: 0.4s; }
 
         .drink-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 149, 0, 0.2);
-        }
-
-        .drink-icon {
-            font-size: 45px;
-            margin-bottom: 15px;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.25);
+            border-color: #FF6B35;
         }
 
         .drink-name {
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .drink-price {
             font-size: 16px;
-            color: #FF9500;
+            color: #FF6B35;
             font-weight: 700;
         }
 
@@ -275,96 +316,102 @@
         .combo-section {
             background: white;
             border-radius: 15px;
-            padding: 40px;
+            padding: 45px;
             margin: 50px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+            border: 2px solid #FF6B35;
         }
 
         .combo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
         }
 
         .combo-card {
-            border: 2px solid #FF9500;
-            border-radius: 10px;
-            padding: 20px;
+            border: 3px solid #FF6B35;
+            border-radius: 12px;
+            padding: 25px;
             text-align: center;
             transition: all 0.3s ease;
             animation: fadeIn 0.6s ease-out forwards;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(255, 133, 85, 0.02) 100%);
         }
 
         .combo-card:nth-child(1) { animation-delay: 0.1s; }
         .combo-card:nth-child(2) { animation-delay: 0.2s; }
 
         .combo-card:hover {
-            background: linear-gradient(135deg, rgba(255, 149, 0, 0.1) 0%, rgba(255, 119, 0, 0.05) 100%);
-            box-shadow: 0 10px 30px rgba(255, 149, 0, 0.2);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.15) 0%, rgba(255, 133, 85, 0.1) 100%);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
         }
 
         .combo-icon {
             font-size: 60px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .combo-name {
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             color: #333;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .combo-includes {
-            font-size: 13px;
+            font-size: 14px;
             color: #666;
-            line-height: 1.8;
-            margin-bottom: 15px;
+            line-height: 1.9;
+            margin-bottom: 18px;
             text-align: left;
         }
 
         .combo-price {
-            font-size: 18px;
-            color: #FF9500;
+            font-size: 20px;
+            color: #FF6B35;
             font-weight: 700;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid #eee;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid rgba(255, 107, 53, 0.3);
         }
 
         /* Sauces */
         .sauce-section {
-            background: linear-gradient(135deg, rgba(255, 149, 0, 0.08) 0%, rgba(255, 119, 0, 0.03) 100%);
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(255, 133, 85, 0.05) 100%);
             border-radius: 15px;
-            padding: 35px;
+            padding: 40px;
             margin: 50px 0;
+            border: 2px solid rgba(255, 107, 53, 0.15);
         }
 
         .sauce-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 22px;
+            margin-top: 28px;
         }
 
         .sauce-item {
             background: white;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 18px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
 
         .sauce-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 149, 0, 0.15);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.18);
+            border-color: #FF6B35;
         }
 
         .sauce-name {
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: #333;
         }
 
@@ -373,16 +420,16 @@
             text-align: center;
             margin-top: 60px;
             padding-top: 30px;
-            border-top: 2px solid #FF9500;
+            border-top: 3px solid #FF6B35;
             color: #999;
-            font-size: 14px;
+            font-size: 15px;
         }
 
         /* Animations */
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-40px);
             }
             to {
                 opacity: 1;
@@ -393,7 +440,7 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(25px);
             }
             to {
                 opacity: 1;
@@ -413,10 +460,19 @@
 
             .menu-grid {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
 
-            .menu-card {
-                max-width: 100%;
+            .card-image {
+                height: 200px;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            .logo-text {
+                font-size: 36px;
             }
         }
     </style>
@@ -425,133 +481,181 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="logo">🍔</div>
-            <h1>BURGERS</h1>
-            <p class="subtitle">PREMIUM BURGER EXPERIENCE</p>
+            <div class="logo-container">
+                <div class="logo-text">
+                    <span class="balcony">BALCONY</span>
+                    <span class="burgers">BURGERS</span>
+                </div>
+                <div class="header-tagline">PREMIUM BURGER EXPERIENCE</div>
+            </div>
+            <p class="subtitle">Crafted with Excellence • Served with Pride</p>
         </div>
 
         <!-- Beef Burgers Section -->
-        <h2 class="section-title">Beef Burgers</h2>
+        <h2 class="section-title">🍔 Beef Burgers</h2>
         <div class="menu-grid">
             <div class="menu-card">
-                <div class="card-image"><span>🍔</span></div>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop" alt="Classic Beef Burger">
+                </div>
                 <div class="card-content">
                     <div class="card-title">Classic Beef</div>
-                    <div class="card-description">Beef, iceberg, chips, pickles, balcony sauce</div>
-                    <div class="price-row">
-                        <span class="size-label">125g</span>
-                        <span class="price-box">$8</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="size-label">200g</span>
-                        <span class="price-box">$10</span>
+                    <div class="card-description">Premium beef patty, crisp iceberg lettuce, fresh tomato, pickles, and our signature balcony sauce</div>
+                    <div class="price-section">
+                        <div class="price-row">
+                            <span class="size-label">125g</span>
+                            <span class="price-box">$8</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size-label">200g</span>
+                            <span class="price-box">$10</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
-                <div class="card-image"><span>🧀</span></div>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1550547690-d5eb893e4a4e?w=500&h=400&fit=crop" alt="Cheese Beef Burger">
+                </div>
                 <div class="card-content">
                     <div class="card-title">Cheese Beef</div>
-                    <div class="card-description">Beef, cheddar, iceberg, chips, pickles, balcony sauce</div>
-                    <div class="price-row">
-                        <span class="size-label">125g</span>
-                        <span class="price-box">$9</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="size-label">200g</span>
-                        <span class="price-box">$11</span>
+                    <div class="card-description">Succulent beef patty topped with melted cheddar cheese, crispy chips, fresh pickles, and balcony sauce</div>
+                    <div class="price-section">
+                        <div class="price-row">
+                            <span class="size-label">125g</span>
+                            <span class="price-box">$9</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size-label">200g</span>
+                            <span class="price-box">$11</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
-                <div class="card-image"><span>🧀🧀</span></div>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1572802419224-7b1aca3a3302?w=500&h=400&fit=crop" alt="Double Cheese Burger">
+                </div>
                 <div class="card-content">
                     <div class="card-title">Double Cheese</div>
-                    <div class="card-description">Beef, 2 cheddar, iceberg, chips, pickles, balcony sauce</div>
-                    <div class="price-row">
-                        <span class="size-label">125g</span>
-                        <span class="price-box">$12</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="size-label">200g</span>
-                        <span class="price-box">$19</span>
+                    <div class="card-description">Indulge in double cheddar cheese slices over our premium beef patty with iceberg, chips, pickles, and balcony sauce</div>
+                    <div class="price-section">
+                        <div class="price-row">
+                            <span class="size-label">125g</span>
+                            <span class="price-box">$12</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size-label">200g</span>
+                            <span class="price-box">$19</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
-                <div class="card-image"><span>🫙</span></div>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1585238341710-4abb9f1e64f0?w=500&h=400&fit=crop" alt="Mozzarella Beef Burger">
+                </div>
                 <div class="card-content">
                     <div class="card-title">Mozzarella Beef</div>
-                    <div class="card-description">Beef patty, breaded mozzarella, iceberg, chips, pickles, balcony sauce</div>
-                    <div class="price-row">
-                        <span class="size-label">125g</span>
-                        <span class="price-box">$10</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="size-label">200g</span>
-                        <span class="price-box">$12</span>
+                    <div class="card-description">Crispy breaded mozzarella on top of a juicy beef patty, iceberg, chips, pickles, and our special balcony sauce</div>
+                    <div class="price-section">
+                        <div class="price-row">
+                            <span class="size-label">125g</span>
+                            <span class="price-box">$10</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size-label">200g</span>
+                            <span class="price-box">$12</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
-                <div class="card-image"><span>🍄</span></div>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&h=400&fit=crop" alt="Swiss Mushroom Burger">
+                </div>
                 <div class="card-content">
                     <div class="card-title">Swiss Mushroom</div>
-                    <div class="card-description">Beef patty, swiss cheese, fresh mushrooms, balcony sauce</div>
-                    <div class="price-row">
-                        <span class="size-label">125g</span>
-                        <span class="price-box">$10</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="size-label">200g</span>
-                        <span class="price-box">$12</span>
+                    <div class="card-description">Gourmet beef patty topped with creamy swiss cheese and sautéed fresh mushrooms with our signature sauce</div>
+                    <div class="price-section">
+                        <div class="price-row">
+                            <span class="size-label">125g</span>
+                            <span class="price-box">$10</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size-label">200g</span>
+                            <span class="price-box">$12</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="menu-card">
-                <div class="card-image"><span>🇱🇧</span></div>
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1499161574692-0f0b4e7c4c64?w=500&h=400&fit=crop" alt="Lebanese Burger">
+                </div>
                 <div class="card-content">
                     <div class="card-title">Lebanese Burger</div>
-                    <div class="card-description">Beef patty, onion, tomato, iceberg, fries, mayo, ketchup</div>
-                    <div class="price-row">
-                        <span class="size-label">125g</span>
-                        <span class="price-box">$8</span>
-                    </div>
-                    <div class="price-row">
-                        <span class="size-label">200g</span>
-                        <span class="price-box">$10</span>
+                    <div class="card-description">Authentic Lebanese flavors with beef patty, fresh onions, ripe tomatoes, iceberg, crispy fries, mayo, and ketchup</div>
+                    <div class="price-section">
+                        <div class="price-row">
+                            <span class="size-label">125g</span>
+                            <span class="price-box">$8</span>
+                        </div>
+                        <div class="price-row">
+                            <span class="size-label">200g</span>
+                            <span class="price-box">$10</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Appetizers Section -->
-        <h2 class="section-title">Appetizers</h2>
+        <h2 class="section-title">🍟 Appetizers</h2>
         <div class="appetizers-grid">
             <div class="appetizer-card">
-                <div class="appetizer-icon">🍟</div>
-                <div class="appetizer-name">French Fries</div>
-                <div class="appetizer-price">$4.5</div>
+                <div class="appetizer-image">
+                    <img src="https://images.unsplash.com/photo-1584948895917-e4ffa4a0df3e?w=400&h=300&fit=crop" alt="French Fries">
+                </div>
+                <div class="appetizer-content">
+                    <div class="appetizer-name">French Fries</div>
+                    <div class="appetizer-price">$4.5</div>
+                </div>
             </div>
+
             <div class="appetizer-card">
-                <div class="appetizer-icon">〰️</div>
-                <div class="appetizer-name">Curly Fries</div>
-                <div class="appetizer-price">$5.5</div>
+                <div class="appetizer-image">
+                    <img src="https://images.unsplash.com/photo-1562547256-be8b4618a7a9?w=400&h=300&fit=crop" alt="Curly Fries">
+                </div>
+                <div class="appetizer-content">
+                    <div class="appetizer-name">Curly Fries</div>
+                    <div class="appetizer-price">$5.5</div>
+                </div>
             </div>
+
             <div class="appetizer-card">
-                <div class="appetizer-icon">🧀</div>
-                <div class="appetizer-name">Mozzarella Sticks</div>
-                <div class="appetizer-price">$4 - $6</div>
+                <div class="appetizer-image">
+                    <img src="https://images.unsplash.com/photo-1579582190000-c8d7d86b7c51?w=400&h=300&fit=crop" alt="Mozzarella Sticks">
+                </div>
+                <div class="appetizer-content">
+                    <div class="appetizer-name">Mozzarella Sticks</div>
+                    <div class="appetizer-price">$4 - $6</div>
+                </div>
             </div>
+
             <div class="appetizer-card">
-                <div class="appetizer-icon">🍟</div>
-                <div class="appetizer-name">Loaded Chicken Fries</div>
-                <div class="appetizer-price">Special</div>
+                <div class="appetizer-image">
+                    <img src="https://images.unsplash.com/photo-1626082927389-6cd097cfd45e?w=400&h=300&fit=crop" alt="Loaded Chicken Fries">
+                </div>
+                <div class="appetizer-content">
+                    <div class="appetizer-name">Loaded Chicken Fries</div>
+                    <div class="appetizer-price">Coming Soon</div>
+                </div>
             </div>
         </div>
 
@@ -563,19 +667,19 @@
                     <div class="combo-icon">🍔🍟</div>
                     <div class="combo-name">Classic Combo</div>
                     <div class="combo-includes">
-                        • Burger of choice<br>
-                        • French Fries<br>
-                        • Soft Drink
+                        ✓ Burger of your choice<br>
+                        ✓ French Fries<br>
+                        ✓ Soft Drink
                     </div>
                     <div class="combo-price">$12.99</div>
                 </div>
                 <div class="combo-card">
-                    <div class="combo-icon">🍔〰️</div>
+                    <div class="combo-icon">👑🍔</div>
                     <div class="combo-name">Premium Combo</div>
                     <div class="combo-includes">
-                        • Premium Burger<br>
-                        • Curly Fries<br>
-                        • Soft Drink
+                        ✓ Premium Burger<br>
+                        ✓ Curly Fries<br>
+                        ✓ Soft Drink
                     </div>
                     <div class="combo-price">$14.99</div>
                 </div>
@@ -584,26 +688,22 @@
 
         <!-- Drinks Section -->
         <div class="drinks-section">
-            <h2 class="section-title">Beverages</h2>
+            <h2 class="section-title">🥤 Beverages</h2>
             <div class="drinks-grid">
                 <div class="drink-card">
-                    <div class="drink-icon">💧</div>
-                    <div class="drink-name">Water</div>
+                    <div class="drink-name">💧 Water</div>
                     <div class="drink-price">$0.5</div>
                 </div>
                 <div class="drink-card">
-                    <div class="drink-icon">🥤</div>
-                    <div class="drink-name">Soft Drinks</div>
+                    <div class="drink-name">🥤 Soft Drinks</div>
                     <div class="drink-price">$1.5</div>
                 </div>
                 <div class="drink-card">
-                    <div class="drink-icon">🧋</div>
-                    <div class="drink-name">Ice Tea</div>
+                    <div class="drink-name">🧋 Ice Tea</div>
                     <div class="drink-price">$1.5</div>
                 </div>
                 <div class="drink-card">
-                    <div class="drink-icon">✨</div>
-                    <div class="drink-name">Sparkling Water</div>
+                    <div class="drink-name">✨ Sparkling Water</div>
                     <div class="drink-price">$2</div>
                 </div>
             </div>
@@ -611,7 +711,8 @@
 
         <!-- Sauces Section -->
         <div class="sauce-section">
-            <h2 class="section-title">Premium Sauces ($.50 extra)</h2>
+            <h2 class="section-title">🧂 Premium Sauces</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 25px; font-weight: 600;">Add any sauce for just $0.50 extra</p>
             <div class="sauce-grid">
                 <div class="sauce-item">
                     <div class="sauce-name">🍅 Ketchup</div>
@@ -620,26 +721,27 @@
                     <div class="sauce-name">🥫 Mayo</div>
                 </div>
                 <div class="sauce-item">
-                    <div class="sauce-name">🔴 BBQ</div>
+                    <div class="sauce-name">🔴 BBQ Sauce</div>
                 </div>
                 <div class="sauce-item">
-                    <div class="sauce-name">⚪ Balcony Sauce</div>
+                    <div class="sauce-name">⭐ Balcony Sauce</div>
                 </div>
                 <div class="sauce-item">
                     <div class="sauce-name">🍯 Honey Mustard</div>
                 </div>
                 <div class="sauce-item">
-                    <div class="sauce-name">🧀 Cheddar</div>
+                    <div class="sauce-name">🧀 Cheddar Sauce</div>
                 </div>
                 <div class="sauce-item">
-                    <div class="sauce-name">🅰️ A77</div>
+                    <div class="sauce-name">🅰️ A77 Sauce</div>
                 </div>
             </div>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>🍔 Thank you for choosing our restaurant • Enjoy your meal! 🍔</p>
+            <p>🍔 <strong>BALCONY BURGERS</strong> • Crafted with Excellence • Served with Pride 🍔</p>
+            <p style="margin-top: 10px; font-size: 13px;">Thank you for choosing us! Enjoy your meal!</p>
         </div>
     </div>
 </body>
